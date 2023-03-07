@@ -23,7 +23,7 @@ Install the npm packages using "npm i" command. Generate the DB using the schema
 
 ## Usage
 
-Use insomnia to provide API requests and to monitor the responses.
+Use insomnia to provide API requests and to monitor the responses. Please check out this link for instructions on using the code: [https://youtu.be/GHbeqnjcM_g](https://youtu.be/GHbeqnjcM_g)
     
 ## Contributing
 
