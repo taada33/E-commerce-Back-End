@@ -7,14 +7,14 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 router.get('/', async (req, res) => {
   // find all products with associated Category and Tag data
   try {
-    const Products = await Product.findAll({
+    const productData = await Product.findAll({
       include: [{model: Category}, {model: Tag}]
     })
-    if(Products.length === 0){
+    if(productData.length === 0){
       res.status(404).json({message: "no products found"})
       return;
     }else{
-      res.status(200).json(Products);
+      res.status(200).json(productData);
     }
   } catch (err) {
     return res.status(500).json(err);
@@ -86,7 +86,6 @@ router.put('/:id', (req, res) => {
       // get list of current tag_ids
       const productTagIds = productTags.map(({ tag_id }) => tag_id);
       // create filtered list of new tag_ids
-      console.log(req.body.tagIds);
       const newProductTags = req.body.tagIds
         .filter((tag_id) => !productTagIds.includes(tag_id))
         .map((tag_id) => {
@@ -106,11 +105,12 @@ router.put('/:id', (req, res) => {
         ProductTag.bulkCreate(newProductTags),
       ]);
     })
-    .then((updatedProductTags) => res.json(updatedProductTags))
+    .then((updatedProductTags) => res.json([req.body, {product_tags: updatedProductTags[1]}]))
     .catch((err) => {
       res.status(400).json(err);
     });
 });
+
 
 router.delete('/:id', async (req, res) => {
   // delete one product by its `id` value
