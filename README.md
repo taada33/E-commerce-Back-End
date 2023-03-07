@@ -1,131 +1,49 @@
-# E-commerce Back End Starter Code
 
-GIVEN a functional Express.js API
-WHEN I add my database name, MySQL username, and MySQL password to an environment variable file
-THEN I am able to connect to a database using Sequelize
-WHEN I enter schema and seed commands
-THEN a development database is created and is seeded with test data
-WHEN I enter the command to invoke the application
-THEN my server is started and the Sequelize models are synced to the MySQL database
-WHEN I open API GET routes in Insomnia Core for categories, products, or tags
-THEN the data for each of these routes is displayed in a formatted JSON
-WHEN I test API POST, PUT, and DELETE routes in Insomnia Core
-THEN I am able to successfully create, update, and delete data in my database
+# E-commerce-Back-End
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Database Models
-Your database should contain the following four models, including the requirements listed for each model:
+  
+## Description
 
-Category
-
-id
-
-Integer
-
-Doesn't allow null values
-
-Set as primary key
-
-Uses auto increment
-
-category_name
-
-String
-
-Doesn't allow null values
+Back end for an e-commerce site. Implemented using an express.js API configured with Sequelize to interact with an SQL database.
 
 
+## Table of Contents
 
-Product
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Tests](#tests)
+- [Questions](#questions)
 
-id
+## Installation
 
-Integer
+Install the npm packages using "npm i" command. Generate the DB using the schema.sql file and the "source" command. Seed the database by using the "npm run seed" command. Start the database using "npm run start" command.
 
-Doesn't allow null values
+## Usage
 
-Set as primary key
+Use insomnia to provide API requests and to monitor the responses.
+    
+## Contributing
 
-Uses auto increment
+There are no contribution guidelines at this time.
 
-product_name
+## License 
+    
+Copyright 2023
 
-String
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-Doesn't allow null values
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-price
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-Decimal
+## Tests
 
-Doesn't allow null values
+There are no tests at this time.
 
-Validates that the value is a decimal
+## Questions
 
-stock
+Feel free to visit my Github, [taada33](https://github.com/taada33) or send me an email at taadamson33@gmail.com.
 
-Integer
-
-Doesn't allow null values
-
-Set a default value of 10
-
-Validates that the value is numeric
-
-category_id
-
-Integer
-
-References the category model's id
-
-Tag
-
-id
-
-Integer
-
-Doesn't allow null values
-
-Set as primary key
-
-Uses auto increment
-
-tag_name
-
-String
-
-ProductTag
-
-id
-
-Integer
-
-Doesn't allow null values
-
-Set as primary key
-
-Uses auto increment
-
-product_id
-
-Integer
-
-References the product model's id
-
-tag_id
-
-Integer
-
-References the tag model's id
-
-Associations
-You'll need to execute association methods on your Sequelize models to create the following relationships between them:
-
-Product belongs to Category, as a category can have multiple products but a product can only belong to one category.
-
-Category has many Product models.
-
-Product belongs to many Tag models. Using the ProductTag through model, allow products to have multiple tags and tags to have many products.
-
-Tag belongs to many Product models.
-
-HINT
